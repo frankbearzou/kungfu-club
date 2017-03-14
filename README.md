@@ -18,7 +18,7 @@ npm install
 Create a .env file and set MySQL connection string
 ```
 touch .env
-echo MYSQL='mysql://username:password@localhost/KungFuClub?debug=true'; >> .env
+echo "MYSQL='mysql://username:password@localhost/KungFuClub?debug=true';" >> .env
 ```
 
 Importing sql into MySQL database.
