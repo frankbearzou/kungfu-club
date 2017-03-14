@@ -1,0 +1,52 @@
+<md-input-container>
+    <label>name</label>
+    <input ng-model="$parent.student.stu_name" required>
+</md-input-container>
+<div layout-gt-xs="row">
+    <div flex-gt-xs>
+        <h4>Date of Birth mm-dd-yyyy</h4>
+        <md-datepicker ng-model="$parent.student.stu_dob" md-placeholder="mm-dd-yyyy"></md-datepicker>
+    </div>
+
+    <div flex-gt-xs>
+        <h4>Date of join school mm-dd-yyyy</h4>
+        <md-datepicker ng-model="$parent.student.stu_joinschool" md-placeholder="mm-dd-yyyy"></md-datepicker>
+    </div>
+</div>
+
+<div>
+    <md-input-container>
+        <label>phone</label>
+        <input ng-model="$parent.student.stu_phone">
+    </md-input-container>
+
+    <md-input-container>
+        <label>email</label>
+        <input ng-model="$parent.student.stu_email">
+    </md-input-container>
+</div>
+
+
+<div>
+    <md-input-container>
+        <label>address</label>
+        <input ng-model="$parent.student.stu_address">
+    </md-input-container>
+</div>
+
+<div>
+    <md-checkbox ng-model="$parent.student.stu_is_student">
+        is student: {{$parent.student.stu_is_student}}
+    </md-checkbox>
+
+    <md-checkbox ng-model="$parent.student.stu_is_active">
+        is active: {{ $parent.student.stu_is_active }}
+    </md-checkbox>
+
+    <md-input-container style="margin-right: 10px;">
+        <label>Rank</label>
+        <md-select ng-model="$parent.student.stu_current_rank">
+            <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
+        </md-select>
+    </md-input-container>
+</div>

@@ -1,0 +1,16 @@
+{{student}}
+<div class="container">
+    <a ui-sref="viewStudent({id:student.stu_num})">return</a>
+    <h2>Update Student</h2>
+
+    <form ng-submit="update(student)">
+        <div ng-include="'components/student/form.html'"></div>
+
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+    <div ng-if="result">
+        result: {{result}}
+    </div>
+</div>

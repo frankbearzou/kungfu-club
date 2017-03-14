@@ -1,0 +1,77 @@
+<div class="container">
+    <a ui-sref="students">return</a>
+    <div class="text-center">
+        <h2>Student Details</h2>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>student number</td>
+                    <td>{{student.stu_num}}</td>
+                </tr>
+                <tr>
+                    <td>student name</td>
+                    <td>{{student.stu_name}}</td>
+                </tr>
+                <tr>
+                    <td>day of birth</td>
+                    <td>{{student.stu_dob.substr(0, 10)}}</td>
+                </tr>
+                <tr>
+                    <td>join school date</td>
+                    <td>{{student.stu_joinschool.substr(0, 10)}}</td>
+                </tr>
+                <tr>
+                    <td>phone number</td>
+                    <td>
+                        <div ng-if="student.stu_phone.length === 10">
+                            {{'(' + student.stu_phone.substr(0, 3) + ')'
+                              + ' ' + student.stu_phone.substr(3, 3)
+                              + '-' + student.stu_phone.substr(6, 4)
+                            }}
+                        </div>
+                        <div ng-if="student.stu_phone.length !== 10">
+                            {{student.stu_phone}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>{{student.stu_email}}</td>
+                </tr>
+                <tr>
+                    <td>address</td>
+                    <td>{{student.stu_address}}</td>
+                </tr>
+                <tr>
+                    <td>is student</td>
+                    <td>
+                        <div ng-if="student.stu_is_student">
+                            <div class="glyphicon glyphicon-ok"></div>
+                        </div>
+                        <div ng-if="!student.stu_is_student">
+                            <div class="glyphicon glyphicon-remove"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>is active</td>
+                    <td>
+                        <div ng-if="student.stu_is_active">
+                            <div class="glyphicon glyphicon-ok"></div>
+                        </div>
+                        <div ng-if="!student.stu_is_active">
+                            <div class="glyphicon glyphicon-remove"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>rank</td>
+                    <td>{{student.rank_name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a ui-sref="editStudent({id:student.stu_num})">update</a>
+        <button class="btn btn-danger">delete</button>
+
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+    <a ui-sref="students">return</a>
+    <h2>Add New Student</h2>
+        <form role="form" ng-submit="add(student)">
+            {{student}}
+            <div ng-include="'components/student/form.html'"></div>
+            <button type="submit">Add</button>
+        </form>
+
+</div>
