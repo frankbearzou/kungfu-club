@@ -70,10 +70,8 @@ app.controller('StudentListController', ['$scope', '$http', '$state',
 
     $scope.delete = function (id) {
       $http.delete('/api/students/' + id).then(function (response) {
-
-      }).then(function () {
-        get();
-      })
+        $scope.get();
+      });
     }
   }
 ]);
