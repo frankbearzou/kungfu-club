@@ -19,12 +19,13 @@ module.exports.create = function (student, callback) {
   });
 };
 
-module.exports.queryAll = function (callback) {
+module.exports.queryAll = function (cond, callback) {
+  cond = cond ? cond : '';
   pool.getConnection(function (error, conn) {
     if (error) {
       callback(error);
     } else {
-      var sql = 'select stu_num,stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,concat(stu_current_rank, ".", r.rank_name) rank_name from student s, rank r where s.stu_current_rank = r.rank_num;';
+      var sql = 'select stu_num,stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,concat(stu_current_rank, ".", r.rank_name) rank_name from student s, rank r where 1=1 and s.stu_current_rank = r.rank_num' + cond + ';';
       conn.query(sql, function (error, results, fields) {
         callback(error, results);
         conn.release();
