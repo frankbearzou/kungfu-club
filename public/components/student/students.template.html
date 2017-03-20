@@ -2,6 +2,39 @@
     <div class="text-center">
         <h2>Students Information</h2>
         <div class="row">
+         <!--  Condition: is active: {{cond.stu_is_active}},-->
+        </div>
+        <div layout="row" md-colors="{color: 'red-A100', 'border-color': 'primary-600'}">
+            <div flex="25">
+                <h3>Current States:</h3>
+                <md-radio-group ng-model="cond.stu_is_active">
+                    <md-radio-button value="All" class="md-primary">All</md-radio-button>
+                    <md-radio-button value="Active">Active</md-radio-button>
+                    <md-radio-button value="Inactive">Inactive</md-radio-button>
+                </md-radio-group>
+            </div>
+            <div flex="25">
+                <md-input-container style="margin-right: 10px;">
+                    <label>Rank</label>
+                    <md-select ng-model="cond.stu_current_rank">
+                        <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div flex="25">
+                <md-input-container>
+                    <label>Join Year</label>
+                    <input ng-model="cond.stu_joinschool" type="number" min="2000" max="2017">
+                </md-input-container>
+            </div>
+            <div flex>
+                <button ng-click="get()">Search</button>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
             <div class="col-md-offset-10 col-md-2">
                 <a ui-sref="newStudent">Add New Student</a>
             </div>

@@ -1,10 +1,20 @@
 <div class="container">
-    <a ui-sref="students">return</a>
+    <nav aria-label="...">
+    <ul class="pager">
+        <li class="previous"><a  ui-sref="students"><span aclass="glyphicon glyphicon-hand-left" aria-hidden="true">&larr;</span> Return</a></li>
+    </ul>
+</nav>
+    <!--<a ui-sref="students">return</a>-->
     <h2>Add New Student</h2>
         <form role="form" ng-submit="add(student)">
-            {{student}}
+
+         <!--
+            <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" ui-sref="students"></span> Return
+        </button>-->
+            <!-- {{student}}-->
             <div ng-include="'components/student/form.html'"></div>
-            <button type="submit">Add</button>
+            <button type="submit" class="btn btn-primary"  style="padding-right:200px;"> + Add Student</button>
         </form>
 
 </div>

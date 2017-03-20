@@ -44,20 +44,34 @@ app.controller('StudentCreateController', ['$scope', '$state', '$http',
 
 app.controller('StudentListController', ['$scope', '$http', '$state',
   function StudentListController($scope, $http, $state) {
-    function get() {
-      $http.get('/api/students').then(function (response) {
+    $http.get('/api/ranks').then(function (response) {
+      $scope.ranks = response.data;
+      $scope.ranks.unshift({"rank_num":0,"rank_name":"All","belt_color":"All"});
+    });
+
+    $scope.cond = {
+      stu_is_active: 'All', // [Active, Inactive, All]
+      stu_current_rank: 0,
+      stu_joinschool: '',
+    };
+
+
+    $scope.get = function() {
+      var cond = angular.copy($scope.cond);
+
+      $http.post('/api/students/search', {cond: cond}).then(function (response) {
         $scope.students = response.data;
       });
-    }
+    };
 
-    get();
+    $scope.get();
+
+
 
     $scope.delete = function (id) {
       $http.delete('/api/students/' + id).then(function (response) {
-
-      }).then(function () {
-        get();
-      })
+        $scope.get();
+      });
     }
   }
 ]);
