@@ -1,21 +1,27 @@
+
 <div class="container">
     <div class="text-center">
         <h2>Students Information</h2>
         <div class="row">
-            Condition: is active: {{cond.stu_is_active}},
+            <!--  Condition: is active: {{cond.stu_is_active}},-->
         </div>
-        <div layout="row" md-colors="{color: 'red-A100', 'border-color': 'primary-600'}">
-            <div flex="25">
-                <h3>Current States:</h3>
-                <md-radio-group ng-model="cond.stu_is_active">
-                    <md-radio-button value="All" class="md-primary">All</md-radio-button>
-                    <md-radio-button value="Active">Active</md-radio-button>
-                    <md-radio-button value="Inactive">Inactive</md-radio-button>
-                </md-radio-group>
-            </div>
-            <div flex="25">
-                <md-input-container style="margin-right: 10px;">
-                    <label>Rank</label>
+        <nav class="navbar navbar-default">
+
+            <div layout="row" md-colors="{color: 'red-A100', 'border-color': 'primary-600'}">
+                <div flex="25">
+                    <md-input-container style="margin-right: 10px;">
+            <label>CURRENT STATUS</label>
+            <md-select  ng-model="cond.stu_is_active">
+                <md-option value="all">ALL</md-option>
+                <md-option value="Active">ACTIVE</md-option>
+                <md-option value="Inactive">INACTIVE</md-option>
+            </md-select>
+                    </md-input-container>
+                </div>
+
+                <div flex="25">
+                    <md-input-container style="margin-right: 10px;">
+                      <label>RANK</label> 
                     <md-select ng-model="cond.stu_current_rank">
                         <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
                     </md-select>
@@ -27,64 +33,69 @@
                     <input ng-model="cond.stu_joinschool" type="number" min="2000" max="2017">
                 </md-input-container>
             </div>
-            <div flex>
-                <button ng-click="get()">Search</button>
-            </div>
-        </div>
-        <div class="row">
 
-        </div>
-        <div class="row">
-            <div class="col-md-offset-10 col-md-2">
-                <a ui-sref="newStudent">Add New Student</a>
-            </div>
-        </div>
-        <table class="table table-responsive table-bordered">
+              <!--  <div class="row">
+                    <div class="col-md-offset-10 col-md-2 " >
+                        <button ng-click="get()">Search</button>
+                    </div>       
+        </div> -->
+              
+                <form class="navbar-form navbar-left">
+      <button  ng-click="get()">Search</button>
+    </form>
+                
+                 <form class="navbar-form navbar-left">
+      <button  ui-sref="newStudent" >AddStudents</button >
+    </form>
+                
+</nav>
+
+        <table class="table table-responsive table-bordered table-striped table-hover">
             <thead>
-                <tr>
-                    <th>student number</th>
-                    <th>name</th>
-                    <th>DOB</th>
-                    <th>join date</th>
-                    <th>phone</th>
-                    <th>email</th>
-                    <!--<th>address</th>-->
-                    <th>student?</th>
-                    <th>active?</th>
-                    <th>rank</th>
-                    <th>info</th>
-                    <th>delete</th>
-                </tr>
+            <tr>
+                <th>student number</th>
+                <th>name</th>
+                <th>DOB</th>
+                <th>join date</th>
+                <th>phone</th>
+                <th>email</th>
+                <!--<th>address</th>-->
+                <th>student?</th>
+                <th>active?</th>
+                <th>rank</th>
+                <th>info</th>
+                <th>delete</th>
+            </tr>
             </thead>
             <tbody >
-                <tr ng-repeat="stu in students">
-                    <td>{{stu.stu_num}}</td>
-                    <td>{{stu.stu_name}}</td>
-                    <td>{{stu.stu_dob.substr(0, 10)}}</td>
-                    <td>{{stu.stu_joinschool.substr(0, 10)}}</td>
-                    <td>{{stu.stu_phone}}</td>
-                    <td>{{stu.stu_email}}</td>
-                    <!--<td>{{stu.stu_address}}</td>-->
-                    <td>
-                        <div ng-if="stu.stu_is_student">
-                            <div class="glyphicon glyphicon-ok"></div>
-                        </div>
-                        <div ng-if="!stu.stu_is_student">
-                            <div class="glyphicon glyphicon-remove"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div ng-if="stu.stu_is_active">
-                            <div class="glyphicon glyphicon-ok"></div>
-                        </div>
-                        <div ng-if="!stu.stu_is_active">
-                            <div class="glyphicon glyphicon-remove"></div>
-                        </div>
-                    </td>
-                    <td>{{stu.rank_name}}</td>
-                    <td><a ui-sref="viewStudent({id:stu.stu_num})">info<div class="glyphicon glyphicon-info-sign"/></a></td>
-                    <td><button class="btn btn-danger" ng-click="delete(stu.stu_num)">del</button></td>
-                </tr>
+            <tr ng-repeat="stu in students">
+                <td>{{stu.stu_num}}</td>
+                <td>{{stu.stu_name}}</td>
+                <td>{{stu.stu_dob.substr(0, 10)}}</td>
+                <td>{{stu.stu_joinschool.substr(0, 10)}}</td>
+                <td>{{stu.stu_phone}}</td>
+                <td>{{stu.stu_email}}</td>
+                <!--<td>{{stu.stu_address}}</td>-->
+                <td>
+                    <div ng-if="stu.stu_is_student">
+                        <div class="glyphicon glyphicon-ok"></div>
+                    </div>
+                    <div ng-if="!stu.stu_is_student">
+                        <div class="glyphicon glyphicon-remove"></div>
+                    </div>
+                </td>
+                <td>
+                    <div ng-if="stu.stu_is_active">
+                        <div class="glyphicon glyphicon-ok"></div>
+                    </div>
+                    <div ng-if="!stu.stu_is_active">
+                        <div class="glyphicon glyphicon-remove"></div>
+                    </div>
+                </td>
+                <td>{{stu.rank_name}}</td>
+                <td><a ui-sref="viewStudent({id:stu.stu_num})">info<div class="glyphicon glyphicon-info-sign"/></a ></td>
+                <td><button class="btn btn-danger" ng-click="delete(stu.stu_num)">del</button></td>
+            </tr>
             </tbody>
         </table>
     </div>

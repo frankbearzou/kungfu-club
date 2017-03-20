@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Kungfu Club</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -18,10 +18,10 @@
   <style>.active { color: red; font-weight: bold; }</style>
 </head>
 <body ng-app="myApp">
-  <ul class="menu">
-    <li><a ui-sref="students" ui-sref-active="active">Student</a></li>
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
+  <ul class="nav nav-tabs" >
+    <li role="presentation" class="active"><a ui-sref="students" ui-sref-active="active">Student</a></li>
+    <li role="presentation" ><a href="#!/view1">view1</a></li>
+    <li role="presentation"><a href="#!/view2">view2</a></li>
   </ul>
 
   <!--[if lt IE 7]>
