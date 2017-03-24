@@ -2,4 +2,7 @@
 .env
 node_modules
 public/bower_components
+<<<<<<< HEAD
+=======
 .DS_Store
+>>>>>>> a8b6d80ef9f98298341b8714b4a3fb44459949e8
