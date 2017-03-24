@@ -32,12 +32,21 @@
         <input ng-model="$parent.student.stu_address">
     </md-input-container>
 </div>
+
 <md-input-container style="margin-right: 10px;">
     <label> Belt Rank</label>
     <md-select ng-model="$parent.student.stu_current_rank">
         <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
     </md-select>
 </md-input-container>
+
+    <md-input-container style="margin-right: 10px;">
+        <label> Belt Rank</label>
+        <md-select ng-model="$parent.student.stu_current_rank">
+            <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
+        </md-select>
+    </md-input-container>
+
 <div>
 
     <div class="checkbox">
