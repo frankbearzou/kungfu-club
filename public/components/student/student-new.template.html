@@ -1,4 +1,15 @@
 <div class="container">
+<<<<<<< HEAD
+    <!--<a ui-sref="students">return</a> -->
+    <nav aria-label="...">
+    <ul class="pager">
+        <li class="previous"><a  ui-sref="students"><span aclass="glyphicon glyphicon-hand-left" aria-hidden="true">&larr;</span> Return</a ></li>
+    </ul>
+</nav>
+    <h2>Add New Student</h2>
+        <form role="form" ng-submit="add(student)">
+           <!-- {{student}}
+=======
     <nav aria-label="...">
     <ul class="pager">
         <li class="previous"><a  ui-sref="students"><span aclass="glyphicon glyphicon-hand-left" aria-hidden="true">&larr;</span> Return</a></li>
@@ -13,6 +24,12 @@
             <span class="glyphicon glyphicon-hand-left" aria-hidden="true" ui-sref="students"></span> Return
         </button>-->
             <!-- {{student}}-->
+>>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
+            <div ng-include="'components/student/form.html'"></div>
+            <button type="submit" class="btn btn-primary"  style="padding-right:200px;"> + Add Student</button>
+        </form>
+
+</div> -->
             <div ng-include="'components/student/form.html'"></div>
             <button type="submit" class="btn btn-primary"  style="padding-right:200px;"> + Add Student</button>
         </form>
