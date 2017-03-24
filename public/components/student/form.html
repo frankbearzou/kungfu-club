@@ -1,38 +1,22 @@
 <md-input-container>
-<<<<<<< HEAD
     <label>Name</label>
-=======
-    <label>Name </label>
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
     <input ng-model="$parent.student.stu_name" required>
 </md-input-container>
 <div layout-gt-xs="row">
     <div flex-gt-xs>
-<<<<<<< HEAD
         <h4>Date of Birth </h4>
-=======
-        <h4>Date of Birth</h4>
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
         <md-datepicker ng-model="$parent.student.stu_dob" md-placeholder="mm-dd-yyyy"></md-datepicker>
     </div>
 
     <div flex-gt-xs>
-<<<<<<< HEAD
         <h4>Date of Join School </h4>
-=======
-        <h4>Date of Join School</h4>
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
         <md-datepicker ng-model="$parent.student.stu_joinschool" md-placeholder="mm-dd-yyyy"></md-datepicker>
     </div>
 </div>
 
 <div>
     <md-input-container>
-<<<<<<< HEAD
         <label>Phone</label>
-=======
-        <label>Phone </label>
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
         <input ng-model="$parent.student.stu_phone" required>
     </md-input-container>
 
@@ -42,46 +26,18 @@
     </md-input-container>
 </div>
 
-
 <div>
     <md-input-container>
         <label>Address</label>
         <input ng-model="$parent.student.stu_address">
     </md-input-container>
 </div>
-
-<<<<<<< HEAD
-<!--<div>
-    <md-checkbox ng-model="$parent.student.stu_is_student">
-=======
-
-<!--
-    <checkbox ng-model="$parent.student.stu_is_student">
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
-        is student: {{$parent.student.stu_is_student}}
-    </checkbox>
-
-    <checkbox ng-model="$parent.student.stu_is_active">
-        is active: {{ $parent.student.stu_is_active }}
-    </checkbox>
--->
     <md-input-container style="margin-right: 10px;">
         <label> Belt Rank</label>
         <md-select ng-model="$parent.student.stu_current_rank">
             <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
         </md-select>
     </md-input-container>
-<<<<<<< HEAD
-</div>-->
-
-<md-input-container style="margin-right: 10px;">
-    <label> Belt Rank</label>
-    <md-select ng-model="$parent.student.stu_current_rank">
-        <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
-    </md-select>
-</md-input-container>
-=======
->>>>>>> 5b66ab63684af58806802672385cb468eaff3bcb
 <div>
 
     <div class="checkbox">
