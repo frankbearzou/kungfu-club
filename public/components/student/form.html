@@ -32,16 +32,27 @@
         <input ng-model="$parent.student.stu_address">
     </md-input-container>
 </div>
+<div>
     <md-input-container style="margin-right: 10px;">
         <label> Belt Rank</label>
         <md-select ng-model="$parent.student.stu_current_rank">
             <md-option ng-repeat="rank in ranks" ng-value="rank.rank_num">{{rank.rank_name}}</md-option>
         </md-select>
     </md-input-container>
+</div>
+
 <div>
 
     <div class="checkbox">
         <label><input type="checkbox" ng-model="$parent.student.stu_is_student">Is Student</label>
+    </div>
+    <div ng-show="$parent.student.stu_is_student">
+        <md-input-container style="margin-right: 10px;">
+            <label> parents</label>
+            <md-select ng-model="$parent.student.stu_father_num">
+                <md-option ng-repeat="parent in parents" ng-value="parent.stu_num">{{parent.stu_name}} - {{parent.stu_phone}}</md-option>
+            </md-select>
+        </md-input-container>
     </div>
     <div class="checkbox">
         <label><input type="checkbox" ng-model="$parent.student.stu_is_active"> Is Active</label>

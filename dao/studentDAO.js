@@ -9,8 +9,8 @@ module.exports.create = function (student, callback) {
     if (error) {
       callback(error);
     } else {
-      var sql = 'insert into student(stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,stu_current_rank) values(?,?,?,?,?,?,?,?,?);';
-      var prep = [student.stu_name, student.stu_dob, student.stu_joinschool, student.stu_phone, student.stu_email, student.stu_address, student.stu_is_student, student.stu_is_active, student.stu_current_rank];
+      var sql = 'insert into student(stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,stu_current_rank,stu_father_num) values(?,?,?,?,?,?,?,?,?,?);';
+      var prep = [student.stu_name, student.stu_dob, student.stu_joinschool, student.stu_phone, student.stu_email, student.stu_address, student.stu_is_student, student.stu_is_active, student.stu_current_rank, student.stu_father_num];
       conn.query(sql, prep, function (error, results, fields) {
         callback(error, results);
         conn.release();

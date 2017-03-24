@@ -62,6 +62,9 @@ router.put('/:id', function (req, res, next) {
 router.post('/', function (req, res, next) {
   var student = req.body.student;
   console.log(student);
+  if (student.stu_father_num === "") {
+    student.stu_father_num = undefined;
+  }
   studentDAO.create(student, function (err, results) {
     console.log('results: ', results);
     if (err) {

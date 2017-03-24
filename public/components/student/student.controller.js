@@ -6,6 +6,15 @@ app.controller('StudentCreateController', ['$scope', '$state', '$http',
       $scope.ranks = response.data;
     });
 
+    $http.get('/api/parents').then(function (response) {
+      $scope.parents = response.data;
+      $scope.parents.unshift({
+        stu_num: "",
+        stu_name: "no parents need",
+        stu_phone: "no parents phone"
+      });
+    });
+
     $scope.student = {
       stu_num: "",
       stu_name: "",
@@ -16,7 +25,8 @@ app.controller('StudentCreateController', ['$scope', '$state', '$http',
       stu_address: "",
       stu_is_student: true,
       stu_is_active: true,
-      stu_current_rank: "1"
+      stu_current_rank: "1",
+      stu_father_num: ""
     };
 
     $scope.add = function (student) {
@@ -69,19 +79,29 @@ app.controller('StudentListController', ['$scope', '$http', '$state',
 
 
     $scope.delete = function (id) {
-      $http.delete('/api/students/' + id).then(function (response) {
-        $scope.get();
-      });
+      if (confirm('Do you want to delete this student?')) {
+        $http.delete('/api/students/' + id).then(function (response) {
+          $scope.get();
+        });
+      }
     }
   }
 ]);
 
-app.controller('StudentViewController', ['$scope', '$stateParams', '$http',
-  function StudentViewController($scope, $stateParams, $http) {
+app.controller('StudentViewController', ['$scope', '$state', '$stateParams', '$http',
+  function StudentViewController($scope, $state, $stateParams, $http) {
     var id = $stateParams.id;
     $http.get('/api/students/' + id).then(function (response) {
       $scope.student = response.data[0];
     });
+
+    $scope.delete = function (id) {
+      if (confirm('Do you want to delete this student?')) {
+        $http.delete('/api/students/' + id).then(function (response) {
+          $state.go('students');
+        });
+      }
+    }
   }
 ]);
 
