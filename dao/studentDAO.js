@@ -39,7 +39,7 @@ module.exports.query = function (id, callback) {
     if (error) {
       callback(error);
     } else {
-      var sql = 'select stu_num,stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,stu_current_rank,concat(stu_current_rank, ".", r.rank_name) rank_name from student s, rank r where s.stu_current_rank = r.rank_num and stu_num = ?;';
+      var sql = 'select stu_num,stu_name,stu_dob,stu_joinschool,stu_phone,stu_email,stu_address,stu_is_student,stu_is_active,stu_current_rank,concat(stu_current_rank, ".", r.rank_name) rank_name,stu_father_num from student s, rank r where s.stu_current_rank = r.rank_num and stu_num = ?;';
       conn.query(sql, [id], function (error, results, fields) {
         callback(error, results);
         conn.release();
