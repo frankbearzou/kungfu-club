@@ -1,5 +1,7 @@
 # KungFu club
 
+please check all the documentations in `Documents` folder.
+
 ## Installation
 1. node.js
 2. MySQL
