@@ -1,6 +1,8 @@
 # KungFu club
 
-please check all the documentations in `Documents` folder.
+Please check all the documentations in `Documents` folder.
+
+Please check the video demo on [YouTube](https://www.youtube.com/watch?v=wCmcJ4bHLd0).
 
 ## Installation
 1. node.js
