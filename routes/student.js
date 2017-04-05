@@ -22,7 +22,7 @@ router.post('/search', function (req, res, next) {
   }
 
   // stu_joinschool
-  if (condition.stu_joinschool != '') {
+  if (condition.stu_joinschool && condition.stu_joinschool != '') {
     cond += ' and year(stu_joinschool)=' + condition.stu_joinschool;
   }
 
